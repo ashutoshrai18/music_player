@@ -1,6 +1,5 @@
 # Music Player
 ### Music Player Demo
-//### **Live Demo** : [https://ashutosh-rai-78.github.io/music_player](https://ashutosh-rai-78.github.io/music_player)
 
 ## Screensshots
 <p float="left">
