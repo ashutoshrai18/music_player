@@ -60,16 +60,29 @@ class _HomePageState extends State<HomePage> {
                 itemCount: snapshot.data!.length,
                 itemBuilder: (context, index) {
                   return ListTile(
-                    leading: const Icon(Icons.music_note),
-                    title: Text(snapshot.data![index].displayNameWOExt),
-                    subtitle: Text('${snapshot.data![index].artist}'),
-                    trailing: const Icon(Icons.more_horiz),
+                    leading: Icon(Icons.music_note, color: Colors.black),
+                    title: Text(
+                      snapshot.data![index].displayNameWOExt,
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+                    ),
+                    subtitle: Text(
+                      snapshot.data![index].artist == "<unknown>"
+                          ? "Unknown Artist"
+                          : snapshot.data![index].artist.toString(),
+                      style:
+                          TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
+                    ),
+                    // trailing: const Icon(Icons.more_horiz),
                     onTap: () {
                       // FullAudioScreen();
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => AudioPlayPage(),
+                            builder: (context) => NowPlayingPage(
+                              songModel: snapshot.data![index],
+                              audioPlayer: _audioPlayer,
+                            ),
                           ));
                     },
                   );
